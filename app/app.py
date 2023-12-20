@@ -4,10 +4,6 @@ import json
 
 app = Flask(__name__)
 
-sts_client = boto3.client('sts')
-response = sts_client.get_caller_identity()
-print(response)
-
 def read_s3_json(bucket_name, key):
     s3 = boto3.client('s3')
     try:
