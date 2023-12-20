@@ -22,6 +22,6 @@ jobs:
 
       - name: Build and push Docker image
         run: |
-          aws ecr get-login-password --region eu-west-2 | docker login --username AWS --password-stdin 972440475321.dkr.ecr.eu-west-2.amazonaws.com
+          aws ecr get-login-password --region eu-west-2 | docker login -u AWS --password-stdin ${{ secrets.AWS_REGISTRY_URL }}
           docker build -t ${{ secrets.AWS_REGISTRY_URL }}/payaza-devops-assessment:latest ./app
           docker push ${{ secrets.AWS_REGISTRY_URL }}/payaza-devops-assessment:latest
