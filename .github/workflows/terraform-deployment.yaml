@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - 'infrastructure/**'
+      - '/.github/workflows/terraform-deployment.yaml'
     branches:
       - payaza-test
 
@@ -23,6 +24,9 @@ jobs:
 
       - name: Validate Terraform
         run: terraform validate
+      
+      - name: Plan Terraform Changes
+        run: terraform plan
 
       - name: Apply Terraform Changes
         run: terraform apply -auto-approve
