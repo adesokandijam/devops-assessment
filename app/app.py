@@ -13,7 +13,7 @@ def read_s3_json(bucket_name, key):
 
 bucket_name, file_key = 'payaza-devops-assessment-test-bucket', 'assessment.json'
 
-@app.route('/message')
+@app.route('/api/message')
 def display_json():
     return jsonify(read_s3_json(bucket_name, file_key))
 
