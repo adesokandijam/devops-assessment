@@ -27,3 +27,7 @@ jobs:
           aws ecr get-login-password --region eu-west-2 | docker login -u AWS --password-stdin ${{ secrets.AWS_REGISTRY_URL }}
           docker build -t ${{ secrets.AWS_REGISTRY_URL }}/payaza-devops-assessment:latest ./app
           docker push ${{ secrets.AWS_REGISTRY_URL }}/payaza-devops-assessment:latest
+
+      - name: Update ECS Service
+        run: |
+          aws ecs update-service --cluster payaza-test-cluster --service simple-api-service --force-new-deployment --region eu-west-2
