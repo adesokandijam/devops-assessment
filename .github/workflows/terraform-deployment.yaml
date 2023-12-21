@@ -16,27 +16,38 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
       
-      - name: Navigate to infrastructure directory
-        run: cd infrastructure
-
       - name: Set up Terraform
         uses: hashicorp/setup-terraform@v1
 
       - name: Initialize Terraform
-        run: terraform init
+        run: |
+          cd infrastructure
+          terraform init
+          cd ..
 
       - name: Validate Terraform
-        run: terraform validate
-      
+        run: |
+          cd infrastructure
+          terraform validate
+          cd ..
+
       - name: Plan Terraform Changes
-        run: terraform plan
+        run: |
+          cd infrastructure
+          terraform plan
+          cd ..
 
       - name: Apply Terraform Changes
-        run: terraform apply -auto-approve
+        run: |
+          cd infrastructure
+          terraform apply -auto-approve
         env:
           TF_VAR_aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
           TF_VAR_aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           TF_VAR_aws_region: "eu-west-2"  # Change this to your AWS region
 
       - name: Cleanup
-        run: rm -rf .terraform
+        run: |
+          cd infrastructure
+          rm -rf .terraform
+          cd ..
