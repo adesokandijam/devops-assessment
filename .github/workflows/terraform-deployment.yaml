@@ -38,12 +38,6 @@ jobs:
           terraform validate
           cd ..
 
-      - name: Plan Terraform Changes
-        run: |
-          cd infrastructure
-          terraform plan
-          cd ..
-
       - name: Apply Terraform Changes
         run: |
           cd infrastructure
