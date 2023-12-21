@@ -11,7 +11,7 @@ resource "aws_ecs_cluster" "payaza_test_ecs_cluster" {
   }
 }
 
-resource "aws_ecs_service" "simple-api" {
+resource "aws_ecs_service" "simple_api" {
   name            = "simple-api-service"
   cluster         = aws_ecs_cluster.payaza_test_ecs_cluster.id
   task_definition = aws_ecs_task_definition.payaza_test-simple-api.id

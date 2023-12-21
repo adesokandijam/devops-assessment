@@ -43,4 +43,10 @@ module "iam" {
   source = "./modules/iam"
 }
 
+module "scaling" {
+  source = "./modules/scaling"
+  ecs_cluster_name = module.ecs.payaz_test_cluster_name
+  ecs_simple_api_svc_name = module.ecs.simple_api_name
+  
+}
 
