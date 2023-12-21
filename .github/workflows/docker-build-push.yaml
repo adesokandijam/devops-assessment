@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - 'app/**'
+      - '.github/workflows/docker-build-push.yaml'
     branches:
       - payaza-test
 
