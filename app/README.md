@@ -20,14 +20,16 @@ This repository contains a simple Python Flask application that serves as an API
 
 ## Run the Docker container:
 
-```bash
-docker run -p 8000:8000 flask-api
+    ```bash
+    docker run -p 8000:8000 flask-api
+    ```
+    
 
 # Flask API
 
 The Flask API will be accessible at [http://localhost:8000/api/message](http://localhost:8000/api/message).
 
-## Application Structure
+# Application Structure
 
 - **app.py:** Flask application code.
 - **Dockerfile:** Docker configuration for building the container.
