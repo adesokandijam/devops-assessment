@@ -32,7 +32,7 @@ The Flask API Dockerized project has the following structure:
 
    ```bash
    git clone https://github.com/adesokandijam/devops-assessment.git
-   cd devops-assessment
+   cd devops-assessment/app
 
 2. **Build the Docker Image:**
     ```bash
