@@ -51,6 +51,10 @@ resource "aws_ecs_task_definition" "payaza_test-simple-api" {
                 }
             ],
             "essential": true,
+            "environment": [
+            {"name": "S3_BUCKET_NAME", "value": "payaza-devops-assessment-test-bucket"},
+            {"name": "S3_FILE_KEY", "value": "assessment.json"},
+            ],
             "environmentFiles": [],
             "mountPoints": [],
             "volumesFrom": [],
